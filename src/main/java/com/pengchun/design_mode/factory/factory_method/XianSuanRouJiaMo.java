@@ -1,4 +1,4 @@
-package com.pengchun.design_mode.factory.abstrct_factory;
+package com.pengchun.design_mode.factory.factory_method;
 
 import com.pengchun.design_mode.factory.simple_factory.RouJiaMo;
 
