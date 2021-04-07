@@ -14,6 +14,7 @@ public class ObjectDemo {
     }
     public static void main(String[] args) {
         T o = new T();
+        // 打印对象在内存中的布局
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
     }
 }
