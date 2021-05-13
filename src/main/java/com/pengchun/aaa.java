@@ -1,6 +1,6 @@
 package com.pengchun;
 
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.ArrayList;
 
 /**
  * @Author 彭淳
@@ -8,14 +8,15 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class aaa {
     public static void main(String[] args) {
-
-        String a = "abc";
-        String b = "abc";
-        CASDemo casDemo = new CASDemo();
-        CASDemo casDemo1 = new CASDemo();
-
-        System.out.println(casDemo.equals(casDemo1));
-        System.out.println(casDemo == casDemo1);
+        ArrayList<String> strings = new ArrayList<>();
+        ArrayList<Integer> integers = new ArrayList<>();
+        strings.add("1");
+        integers.add(1);
+        System.out.println(integers);
 
     }
 }
+
+
+
+

@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byName">
 
-    <bean id="messageService" class="com.pengchun.spring.ioc.MessageServiceImpl"/>
+       xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="studentA" class="com.pengchun.spring.CircularDependency.StudentA">
+        <property name="name" value="彭淳"/>
+        <property name="studentB" ref="studentB"/>
+    </bean>
+
+    <bean id="studentB" class="com.pengchun.spring.CircularDependency.StudentB">
+        <property name="name" value="屈彦伶"/>
+        <property name="studentA" ref="studentA"/>
+    </bean>
+
+    <context:component-scan base-package="com.pengchun"/>
+<!--    <bean id="aspect" class="com.pengchun.spring.CircularDependency.AspectA"/>-->
+
+<!--    <aop:config>-->
+<!--    &lt;!&ndash;定义切面&ndash;&gt;-->
+<!--    <aop:aspect ref="aspect">-->
+<!--        &lt;!&ndash;定义切点&ndash;&gt;-->
+<!--        <aop:pointcut id="action" expression="execution(* com.pengchun.spring.CircularDependency.StudentA.run())"/>-->
+<!--        &lt;!&ndash; 声明前置通知 (在切点方法被执行前调用)&ndash;&gt;-->
+<!--        <aop:after method="aspectPointcut" pointcut-ref="action"/>-->
+<!--    </aop:aspect>-->
+<!--    </aop:config>-->
 </beans>
