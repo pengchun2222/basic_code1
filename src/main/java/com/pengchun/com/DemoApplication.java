@@ -17,14 +17,14 @@ import java.util.concurrent.ExecutionException;
  * @Author 彭淳
  * @Date 2021/3/27
  */
-@SpringBootApplication
+//@SpringBootApplication
 @RestController
-@RequestMapping
+@RequestMapping("/demo")
 public class DemoApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class,args);
-
-    }
+//    public static void main(String[] args) {
+//        SpringApplication.run(DemoApplication.class,args);
+//
+//    }
 
     @Autowired
     RedisTemplate redisTemplate;
